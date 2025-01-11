@@ -112,4 +112,19 @@ public class SeleniumHelper {
         return randomString.toString();
     }
 
+    // Refactored generic explicit wait method
+    public static WebElement waitForElement(By locator, String conditionType, int timeoutInSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
+
+        switch (conditionType) {
+            case "visibility":
+                return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+            case "clickable":
+                return wait.until(ExpectedConditions.elementToBeClickable(locator));
+            case "presence":
+                return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+            default:
+                throw new IllegalArgumentException("Invalid condition type: " + conditionType);
+        }
+    }
 }

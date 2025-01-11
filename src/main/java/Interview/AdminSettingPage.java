@@ -68,10 +68,9 @@ public class AdminSettingPage {
     }
 
     public void addCustomProgramArea() throws InterruptedException {
-        SeleniumHelper.waitForElementToBeClickable(customProgramArea).sendKeys("NewCustomProgramArea11");
-        Thread.sleep(3000);
+        String customerAreaText = SeleniumHelper.generateRandomString(4);
+        SeleniumHelper.waitForElementToBeVisible(customProgramArea).sendKeys(customerAreaText);
+        // Wait for the "Add" button to be clickable and click it
         SeleniumHelper.waitForElementToBeClickable(customProgramAreaAdd).click();
-        Thread.sleep(3000);
-
     }
 }
