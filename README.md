@@ -1,27 +1,3 @@
-
-**src/main/java/Interview/:**
-Contains Java classes related to the page object model (POM), step definitions, helpers, and hooks.
-**AdminSettingPage.java:** Page object class that contains all methods related to the Admin Settings page.
-**AdminSettingStepDefinition.java:** Cucumber step definition file that contains step definitions for the feature file.
-**GetterSetter.java:** Class to hold and manage test data like team member name and email.
-**LoginPage.java:** Class that handles login-related functionality.
-**SeleniumHelper.java:** Utility class for common Selenium functions like waiting for elements, entering text, clicking, etc.
-**Hooks.java:** Class with Cucumber hooks that runs before and after all tests (e.g., driver initialization and cleanup).
-
-**src/test/resources/features/:**
-Contains the Cucumber .feature files that define the test scenarios.
-**AdminSetting.feature:** Cucumber feature file where the user stories/scenarios are written in Gherkin syntax.
-
-**src/test/java/Interview/RunnerTest.java:**
-Cucumber test runner class that connects the features and step definitions. It uses the Cucumber @CucumberOptions to point to the location of the feature files and glue code.
-**pom.xml:**
-Maven configuration file for dependencies, build configurations, and plugins.
-You'll need dependencies for Selenium, Cucumber, TestNG (if used for assertions), WebDriverManager (for driver management), and any other necessary libraries.
-**.gitignore:**
-File to exclude files/folders from being committed to a Git repository (e.g., target/, *.log, *.class).
-**README.md:**
-Contains project details and setup instructions.
-
 # Temelio Automation Project
 
 This is an automation testing project for the Temelio platform using Selenium, Cucumber, and TestNG.
