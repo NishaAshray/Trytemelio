@@ -21,7 +21,7 @@ This is an automation testing project for the Temelio platform using Selenium, C
 
 2. Navigate to the project directory:
     ```bash
-    cd TemelioAutomationProject
+    cd Trytemelio
     ```
 
 3. Install dependencies:
