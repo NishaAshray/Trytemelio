@@ -1,27 +1,3 @@
-TemelioAutomationProject/
-│
-├── src/
-│   ├── main/
-│   │   └── java/
-│   │       └── Interview/
-│   │           ├── AdminSettingPage.java
-│   │           ├── AdminSettingStepDefinition.java
-│   │           ├── GetterSetter.java
-│   │           ├── LoginPage.java
-│   │           ├── SeleniumHelper.java
-│   │           └── Hooks.java
-│   │
-│   └── test/
-│       ├── java/
-│       │   └── Interview/
-│       │       └── RunnerTest.java
-│       └── resources/
-│           └── features/
-│               └── AdminSetting.feature
-│
-├── .gitignore
-├── pom.xml
-└── README.md
 
 **src/main/java/Interview/:**
 Contains Java classes related to the page object model (POM), step definitions, helpers, and hooks.
@@ -95,3 +71,6 @@ This is an automation testing project for the Temelio platform using Selenium, C
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+![image](https://github.com/user-attachments/assets/4127c63a-f7f6-4209-b47d-4ca9b8e9aaba)
+
