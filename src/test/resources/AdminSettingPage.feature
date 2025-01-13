@@ -15,3 +15,5 @@ Feature: Add team member
   Scenario: Add Custom Program Areas
     When I create a new custom program area
     Then the custom program area should be added successfully
+    When I edit the custom program area
+    Then the custom program area should be edited successfully

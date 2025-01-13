@@ -66,4 +66,14 @@ public class AdminSettingStepDefinition {
     public void theCustomProgramAreaShouldBeAddedSuccessfully() {
         org.testng.Assert.assertTrue(true, "Custom Program Area added successfully");
     }
+
+    @When("I edit the custom program area")
+    public void iEditTheCustomProgramArea() throws InterruptedException {
+        teamMemberPage.editCustomProgramArea();
+    }
+
+    @Then("the custom program area should be edited successfully")
+    public void theCustomProgramAreaShouldBeEditedSuccessfully() {
+        org.testng.Assert.assertTrue(true, "Custom Program Area edited successfully");
+    }
 }

@@ -90,6 +90,11 @@ public class SeleniumHelper {
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
+    public static WebElement waitForElementToBeClickable(WebElement element, int timeoutInSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
+        return wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
 
     public static WebElement waitForElementToBeVisible(By locator) {
         return waitForElementToBeVisible(locator, DEFAULT_WAIT_TIME);

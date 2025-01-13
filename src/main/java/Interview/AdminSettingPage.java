@@ -1,8 +1,10 @@
 package Interview;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -30,7 +32,8 @@ public class AdminSettingPage {
 
     private final By customProgramArea = By.xpath("//input[@placeholder='Program Area']");
     private final By customProgramAreaAdd = By.xpath("//input[@placeholder='Program Area']/following-sibling::button[text()='Add']");
-
+    private final By customProgramAreaList = By.xpath("//*[contains(text(),'Custom Program Areas')]//parent::*//parent::div//div[contains(@class,'chakra-stack css-am')]//div//span[@class='css-1ny2kle']");
+    private final By customProgramAreaEdit = By.xpath("//*[contains(text(),'Custom Program Areas')]//parent::*//parent::div//div[contains(@class,'chakra-stack css-am')]//div//input");
     public AdminSettingPage() {
         this.driver = SeleniumHelper.getDriver();
     }
@@ -73,4 +76,27 @@ public class AdminSettingPage {
         // Wait for the "Add" button to be clickable and click it
         SeleniumHelper.waitForElementToBeClickable(customProgramAreaAdd).click();
     }
+
+    public void editCustomProgramArea() throws InterruptedException {
+        List<WebElement> customProgramAreas = driver.findElements(customProgramAreaList);
+        System.out.println("customProgramAreas.size() = " + customProgramAreas.size());
+        if (customProgramAreas.isEmpty()) {
+            throw new RuntimeException("No custom program areas found to edit.");
+        }
+        Actions actions = new Actions(driver);
+        WebElement firstCustomProgramArea = customProgramAreas.get(0);
+        actions.doubleClick(firstCustomProgramArea).build().perform();
+
+        SeleniumHelper.waitForElementToBeVisible(customProgramAreaEdit, 10);
+        customProgramAreas = driver.findElements(customProgramAreaEdit);
+        firstCustomProgramArea = customProgramAreas.get(0);
+        String customerAreaText = SeleniumHelper.generateRandomString(2);
+
+        SeleniumHelper.waitForElementToBeClickable(firstCustomProgramArea, 10);
+        firstCustomProgramArea.sendKeys(customerAreaText);
+        SeleniumHelper.waitForElementToBeVisible(customProgramAreaList,10);
+        actions.sendKeys(Keys.ENTER).build().perform();
+        SeleniumHelper.waitForElementToBeVisible(customProgramAreaList,10);
+    }
+
 }
